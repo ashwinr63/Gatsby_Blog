@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:900,900i|Open+Sans:600,700,800|Lato:400,700|IBM+Plex+Serif&display=swap');
 
 :root {
-  --ffam-serif-a: 'IBM Plex Serif', georgia, serif;
-  --ffam-serif-b: 'Playfair Display', georgia, serif;
-  --ffam-sans-a: 'Open Sans', 'Lato', helvetica, arial, sans-serif;
+  --ffam-serif-a: 'Century', georgia, serif;
+  --ffam-serif-b: 'Montserrat', georgia, serif;
+  --ffam-sans-a: 'Roboto', 'Lato', helvetica, arial, sans-serif;
   --txt-line: 1.4;
-  --txt-vrt: 2rem;
-  --txt-hrz: 1rem;
+  --txt-vrt: 1rem;
+  --txt-hrz: 0.5rem;
   --h-line: 0.9;
-  --h-margin: calc(var(--txt-line) / var(--h-line) * 1rem);
+  --h-margin: calc(var(--txt-line) / var(--h-line) * 0.5rem);
   --corners: calc(var(--txt-vrt) / 8);  
   
-  --col-back: #ffffff;
-  --col-fore: #222222;
+  --col-back: #e4e6e3;
+  --col-fore: #525c70;
   
-  --a-h: 152;
-  --b-h: 290;
+  --a-h: 250;
+  --b-h: 100;
   
   --opaque: 1;
   --lucent: 0.5;
@@ -27,13 +27,10 @@
   --dark: 50%;
   --darker: 50%;
   
-  --col-a-lighter: hsla(var(--a-h), 100%, var(--lighter), var(--opaque));
-  --col-a-light: hsla(var(--a-h), 100%, var(--light), var(--opaque));
-  --col-a: hsla(var(--a-h), 100%, var(--mid), var(--opaque));
-  --col-a-dark: hsla(var(--a-h), 95%, var(--dark), var(--opaque));
-  --col-a-darker: hsla(var(--a-h), 70%, var(--darker), var(--opaque));
-  
-  --col-b: hsla(var(--a-h), 20%, 20%, var(--opaque));
+  --col-light: hsla(var(--a-h), 100%, var(--light), var(--opaque));
+  --col: hsla(var(--a-h), 100%, var(--mid), var(--lucent));
+  --col-dark: hsla(var(--a-h), 80%, var(--dark), var(--opaque));
+  --col-darker: hsla(var(--a-h), 70%, var(--darker), var(--opaque));
 }
 
 *, *::before, *::after {
@@ -90,8 +87,8 @@ h2::after {
   content: " \220C";
   transform: rotate(-45deg);
   display: inline-block;
-  color: var(--col-accent);
-  text-shadow: -0.1rem 0.2rem 0 var(--col-a-light);
+  color: var(--col-darker);
+  text-shadow: -0.1rem 0.2rem 0 var(--col-light);
   opacity: 0;
   cursor: pointer;
 }
@@ -131,14 +128,14 @@ a {
   box-shadow: 0.2rem 0.2rem 0 transparent;
 }
 a:hover {
-  background-color: var(--col-a-lighter);
+  background-color: var(--col-light);
   box-shadow: 0.2rem 0.2rem 0 var(--col-a);  
 }
 p a:hover::before {
   width: 100%;
 }
 p a::before {
-  content: "";
+  content: "\092";
   position: absolute;
   width: 1em;
   height: 0.125em;
@@ -148,10 +145,10 @@ p a::before {
   z-index: -1;
 }
 code, pre {
-  background-color: var(--col-a-lighter);
-  color: var(--col-b);
+  background-color: var(--col-light);
+  color: var(--col-a);
   border-radius: var(--corners);
-  box-shadow: 0.25rem 0.25rem 0 var(--col-a-light);
+  box-shadow: 0.25rem 0.25rem 0 var(--col-light);
 }
 code { 
   padding: calc(var(--txt-vrt) / 20) calc(var(--txt-vrt) / 6); 
@@ -164,10 +161,10 @@ pre::-webkit-scrollbar {
     display: none; 
 }
 kbd {
-  color: var(--col-b);
+  color: var(--col-a);
   box-sizing: border-box;
-  background-color: var(--col-a-lighter);
-  border: 4px outset var(--col-a-light);
+  background-color: var(--col-light);
+  border: 4px outset var(--col-light);
   border-radius: var(--corners);
   position: relative;
   padding: 0 calc(var(--txt-vrt) / 10);  
@@ -185,14 +182,13 @@ kbd + kbd::before {
 abbr {
   text-decoration: none;
   padding: 0 calc(var(--txt-vrt) / 10); 
-  background-color: var(--col-a-lighter);
+  background-color: var(--col-light);
 }
 abbr:hover {
   border-color: var(--col-a);
   cursor: help;
 }
 
-/* https://freefrontend.com/assets/img/css-quote-styles/Quote-Jared-Spool-HTML-CSS.png */
 blockquote {
   margin: calc(var(--txt-vrt)) 0;
   font-size: 1.25em;
@@ -205,9 +201,7 @@ blockquote {
   text-align: right;
   padding-top: calc(var(--txt-vrt) * 1);
   position: relative;
-/*   background-color: var(--col-accent-alt); */
-/*   border-bottom: 0.175em solid var(--col-accent); */
-/*   box-shadow: 0.2rem 0.2rem 0 var(--col-accent-alt); */
+
 }
 blockquote { margin-top: calc(var(--txt-vrt) * 1); }
 blockquote + * { padding-top: calc(var(--txt-vrt) * 1); position: relative; }
@@ -217,12 +211,11 @@ blockquote::before, blockquote + *::before {
   width: 100%;
   top: 0;
   left: 0;
-  border-top: 0.175rem solid var(--col-a-light);
-  box-shadow: 0.2rem 0.2rem 0 var(--col-a-lighter);
+  border-top: 0.175rem solid var(--col-light);
+  box-shadow: 0.2rem 0.2rem 0 var(--col-light);
 }
 blockquote::after {
   content: "\275E";
-/*   content: open-quote; */
   position: absolute;
   display: inline-block;
   color: var(--col-a);
@@ -237,7 +230,7 @@ blockquote::after {
   text-align: center;
   font-size: 1.5em;
   font-family: var(--ffam-serif-b);
-  text-shadow: 0.125rem 0.125rem 0 var(--col-a-lighter);
+  text-shadow: 0.125rem 0.125rem 0 var(--col-light);
 }
 blockquote p {
   text-align: right;
@@ -253,16 +246,13 @@ blockquote > p:first-of-type::first-letter {
   text-shadow: 0.125rem 0.125rem 0 var(--col-a);
   text-transform: uppercase;
 }
-q {
-  /* content: open-quote;
-  content: close-quote; */
-}
+
 figure {
   margin: 0;
 }
 img {
   max-width: 100%;
-  box-shadow: 0.2rem 0.2rem 0 var(--col-a-light);
+  box-shadow: 0.2rem 0.2rem 0 var(--col-light);
 }
 figcaption, cite {
   display: inline-block;
@@ -279,53 +269,36 @@ cite::before {
   line-height: 0.75;
 }
 
-.lead {
-  
+main{
+  margin: 1rem;
+  padding: 1em;
+  font-size: 1.25em;
 }
 
-.byline {
-  
+section {
+  display: block;
+  font-style: var(--ffam-serif-b);
+  font-variant: var(--col-dark);
+  color: var(--col-darker);
 }
-
-
-
-input, textarea {
-  
-}
-  :hover {
-
-  }
-  :focus {
-
-  }
-  :disabled {
-
-  }
-  .error {
-
-  }
 button {
   padding: 0.25em 0.5em;
   background-color: transparent;
   border-radius: var(--corners);
-  border: 0.175em solid var(--col-a-light);
+  border: 0.175em solid var(--col-light);
   box-shadow: 0.2rem 0.2rem 0 var(--col-a);
   font-family: var(--ffam-sans-a);
   text-transform: uppercase;
 }
-  :disabled {
 
-  }
   button:hover {
-    background-color: var(--col-a-light);
-/*     box-shadow: 0.2rem 0.2rem 0 var(--col-a-dark); */
+    background-color: var(--col-light);
+/*     box-shadow: 0.2rem 0.2rem 0 var(--col-dark); */
     cursor: pointer;
   }
-  .action {
-
-  }
+ 
   button.action {
-    background-color: var(--col-a-light);
+    background-color: var(--col-light);
   }
   button.action:hover {
     background-color: var(--col-a);
@@ -346,9 +319,8 @@ button {
 .site-main {
   flex-grow: 1;
 }
-.site-footer {
-  /*   background-color: var(--col-accent); */
-  color: var(--col-b);
+.global-footer {
+  color: var(--col-dark);
   padding: calc(var(--txt-vrt) * 3) 0;
   margin-top: calc(var(--txt-vrt) * 3);
   position: relative;
@@ -356,11 +328,10 @@ button {
   z-index: 0;
   min-height: 10em;
 }
-.site-footer::before {
-  content: "";
+.global-footer::before {
+  content: "\135R";
   background-color: var(--col-a);
-  background: linear-gradient(90deg, var(--col-a) 0%, var(--col-a-light) 100%);
-  /*   background: linear-gradient(90deg, rgba(209,50,81,1) 0%, rgba(230,98,95,1) 100%); */
+  background: linear-gradient(90deg, var(--col-a) 0%, var(--col-light) 100%);
   position: absolute;
   height: 100%;
   width: 120%;
@@ -370,9 +341,9 @@ button {
   z-index: -1;
   transform: rotate(5deg);
 }
-.site-footer::after {
-  content: "";
-  background-color: var(--col-a-lighter);  
+.global-footer::after {
+  content: "\120D";
+  background-color: var(--col-light);  
   position: absolute;
   height: 100%;
   width: 120%;
@@ -383,9 +354,9 @@ button {
   transform: rotate(-2deg);
 }
   
-.logo a {
+.logo-header a {
   display: block;
-  font: 800 3em 'Open Sans', Helvetica, sans-serif;
+  font: 800 3em 'Hack', Helvetica, sans-serif;
   text-transform: uppercase;
   letter-spacing: -0.1em;
   line-height: 0.45;
@@ -395,13 +366,14 @@ button {
 }
 
 .container {
+  color: var(--col-darker);
   width: 90%;
   max-width: 50em;
   margin: auto;
 }
 
 .published, .category {
-  font: 800 0.666em var(--ffam-sans-a);
+  font: 500 0.500em var(--ffam-sans-b);
   text-transform: uppercase;
   letter-spacing: 0.25em;
 }
@@ -413,7 +385,7 @@ button {
 }
 .category {
   background-color: var(--col-a);
-  display: inline-block;
+  display: inline;
   padding: 0.25em;
   font-size: 0.5em;
 }
@@ -422,21 +394,22 @@ button {
 /* Put theses sizes in variables */
 @media screen and (min-width: 40em) {
   body {
-    font-size: 1.20em;
+    font-size: 1.00em;
   }
 }
 @media screen and (min-width: 60em) {
   body {
-    font-size: 1.33em;
+    font-size: 1.00em;
   }
 }
 
 
 /*********** index.css ***********/
 .index-story {
+  display: flex;
   gap: 2em;
   align-items: center;
-  border-bottom: 2px solid lightgrey;
+  border-bottom: 1px solid rgb(198, 198, 209);
   padding: 2em 0;
 }
 .index-story h1 {
@@ -449,27 +422,29 @@ button {
 @media screen and (min-width: 50em) {
   .index-story {
     display: grid;
-    grid-template-columns: auto 20em;
+    grid-template-columns: auto 10em;
     grid-template-areas: "summary img";
-    align-items: start;
+    align-items: end;
   }
   .index-story:nth-child(even) {
     grid-template-columns: 20em auto;
-    grid-template-areas: "img summary";
+    grid-template-areas: "summary img";
   }
   .index-story-summary {
     grid-area: summary;
   }
   .index-story-img {
     grid-area: img;
+    max-width: 100%;
+    height: 100%;
   }
 }
 @media screen and (min-width: 60em) {
   .index-story {
-    grid-template-columns: auto 25em;
+    grid-template-columns: auto 16em;
   }
   .index-story:nth-child(even) {
-    grid-template-columns: 25em auto;
+    grid-template-columns: 30em auto;
   }
 }
 
@@ -477,20 +452,24 @@ button {
 .story-header {
   margin-bottom: 3rem;
 }
+.story-container {
+  margin: 2rem;
+}
 .story-body > p:first-of-type {
   text-indent: 1em;
+  margin: 2em;
 }
 .story-body > p:last-of-type::after {
-  content: " \2726";
+  content: " \1296";
   font-size: 0.75em;
   vertical-align: middle;
   text-indent: 1em;
-  color: var(--col-a-light);
-  text-shadow: 0.125rem 0.125rem 0 var(--col-a-darker);
+  color: var(--col-light);
+  text-shadow: 0.125rem 0.125rem 0 var(--col-darker);
 }
 .header-img {
   min-height: 50vh;
-  background-color: var(--col-a-lighter);
+  background-color: var(--col-light);
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
@@ -501,4 +480,16 @@ button {
 .header-img * {
   color: white;
   mix-blend-mode: difference;
+}
+.articleBody *{
+  color: var(--col-light);
+  text-align: center;
+  text-overflow: var(--col-light);
+  background-color: var(--col-darker);
+}
+
+.articleBody * a {
+
+  display: block;
+  border: 1px solid var(--dark);
 }
